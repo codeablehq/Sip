@@ -1,0 +1,104 @@
+// ==========
+// THEMES
+// -----
+// A theming method devised by yours truly with the help of
+// @ezekkkg.
+//
+// This themeing method allows you to easily add multiple themes
+// that uses a different color or presentation approach with the
+// `themeify` mixin.
+//
+//
+// APPROACH:
+// -----
+// Themify let's you to declare a class high up in the DOM (like body),
+// and allows you to use different colors and properties for every
+// theme that is used.
+//
+// It's quite difficult to explain the methodology with a few words here,
+// so check out my previous blog post at:
+// http://www.zell-weekeat.com/organizing-multiple-theme-styles-with-sass/
+//
+// Note that this is a new and improved version of my initial blog post on
+// in the link above. I haven't had to the time to write a follow up yet.
+//
+// USAGE:
+// -----
+// Each theme should have common variables that are declared in the
+// $themes map, with the theme name as the topmost key. This key
+// will hold a map with the values of all different colors that
+// are used for that particular theme.
+//
+// If a new property is added to the themes map, you have to declare
+// a new property in the themify mixin below. See the themify mixin below
+// for more instructions on usage.
+//
+// MORE INFO:
+// -----
+
+// ==========
+
+$themes: (
+  theme1: (
+    color: color(shamrock),
+    background: color(porcelain),
+    ),
+  theme2: (
+    color: color(havelock-blue),
+    background: color(porcelain),
+    ),
+  );
+
+
+// ==========
+// THEMIFY
+// -----
+// Loops through each theme within $themes and creates a variable that can
+// be used to output values stored within it.
+//
+// When a new property is added, you have to define the theme color like
+// in the examples below.
+//
+// 1) Copy an example like $theme-color and changed the key used.
+// 2) Set your variable used back to null once you have finished using it.
+// ==========
+@mixin themify ($themes: $themes) {
+  @each $theme, $map in $themes {
+    .#{$theme} &  {
+      // Define theme color
+      $theme-color: map-fetch($themes, $theme color) !global;
+      $background-color: map-fetch($themes, $theme background) !global;
+      // ... other vars to use
+
+      @content;
+
+      // Reset theme color to null
+      $theme-color: null !global;
+      $background-color: null !global;
+    }
+  }
+}
+
+// ==========
+// THEMIFY USAGE
+// -----
+// Here is an example of how to use themify and what it outputs:
+// ==========
+
+// Example:
+// .themify-example {
+//   @include themify() {
+//     background-color: $background-color;
+//     color: $theme-color;
+//   }
+// }
+
+// Output:
+// .theme1 .themify-example {
+//   background-color: #fbfcfc;
+//   color: #2fd1af;
+// }
+// .theme2 .themify-example {
+//   background-color: #fbfcfc;
+//   color: #4fa4dd;
+// }

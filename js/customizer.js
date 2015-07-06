@@ -5,6 +5,8 @@
  */
 
 ( function( $ ) {
+	"use strict";
+
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {

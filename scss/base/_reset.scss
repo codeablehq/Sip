@@ -1,0 +1,64 @@
+// ==========
+// THEME RESET
+// -----
+// This file is for you to place your other personal resets
+// in addition to resets given in normalize-scss.
+//
+// Feel free to edit this file and add or remove any of these
+// resets that I have put in place.
+// ==========
+
+// Use border-box for everything
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Resets margins and paddings for headers, ul, ol and p
+h1,h2,h3,h4,h5,h6, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+// ==========
+// COMPLETELY RESETS FORM ITEMS
+// -----
+// This is a super hard reset for all form items.
+// It removes all borders and radiuses of all form items.
+// You can style them however you like after this file. :)
+// ==========
+input,
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  outline: 0;
+  border: 0;
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 0;
+    border: 0;
+  }
+}
+
+// Set Image and Objects to have a max-width of 100%
+embed,
+iframe,
+img,
+object,
+video {
+  max-width: 100%;
+}
+
+// Set Img height and width to auto for IE8
+img {
+  height: auto;
+  width: auto;
+  /* IE8 */
+}

@@ -1,0 +1,93 @@
+// ==========
+// TYPOGRAPHY VARIABLES
+// -----
+// This file is for you to set up all typography related
+// values that are used in your project. It uses Compass
+// Vertical Rhythms to help create typography.
+//
+// All font variables should be included in this file.
+// Examples are:
+//
+// font-size
+// font-weight
+// font-family,
+// line-height
+// ... and others
+//
+// Feel free to add or change any variables declared
+// within this file.
+//
+// ==========
+
+// ==========
+// DEFAULT TYPOGRAPHY SETTINGS - The default settings for this projects are:
+// ==========
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+$round-to-nearest-half-line: true;
+
+// Uses the `rem` unit for all vertical rhythm output
+$rhythm-unit: "rem";
+
+// Sets different font families for us with
+$body-font:'';
+$header-font:'';
+$code-font:'';
+
+// ==========
+// Sets Typograhy sizes
+// -----
+// Adapted from https://medium.com/p/8e51498c3713 to create
+// typography variables that can be easily used in other
+// areas of your project.
+//
+// DEPENDENCY:
+// ------
+// This uses the @include adjust-font-size-to mixin and
+// requires Compass Vertical Rhythm to be used. A version
+// of compass vertical rhythms that is decoupled from Compass
+// is installed into this starter by default.
+//
+//
+// USAGE:
+// ------
+// This will output h1 font size and line height
+//
+// .example {
+//   @include type-scale(h1);
+// }
+//
+// Refer to helpers/mixins for the mixin used.
+// ==========
+
+$type-scale: (
+  h1: (
+    font-size: 39.063px,
+    base-lines: 1.75
+    ),
+  h2: (
+    font-size: 31.25px,
+    base-lines: 1.5
+    ),
+  h3: (
+    font-size: 25px,
+    base-lines: 1.25
+    ),
+  h4: (
+    font-size: 20px,
+    base-lines: 1
+    ),
+  h5: (
+    font-size: 12.8px,
+    base-lines: 0.75
+    ),
+  h6: (
+    font-size: 10.24px,
+    base-lines: 0.5
+    ),
+  base: (
+   font-size: $base-font-size,
+   base-lines: 1
+   ),
+  );

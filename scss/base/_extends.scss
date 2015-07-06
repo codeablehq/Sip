@@ -1,0 +1,20 @@
+// ==========
+// EXTENDS
+// -----
+// This file is for you to include any additional
+// @extend placeholders that you like to use for your project
+//
+// I have included a few samples that I usually
+// use to start with.
+//
+// ==========
+
+// Clearfix
+%cf {
+  @include cf;
+}
+
+// list style none
+%lsn {
+  list-style: none;
+}

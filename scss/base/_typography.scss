@@ -1,0 +1,77 @@
+// ==========
+// TYPOGRAPHY BASE
+// -----
+// This file sets the typography for the rest of the document.
+// Properties that should be present are only:
+//
+// font-family
+// font-size
+// line-height
+// font-weight
+// font-style
+// font-variant
+// ... and other font properties
+//
+// If your typography changes in size when the breakpoint
+// changes, you should include these changes right here in this
+// document.
+//
+// NOTE
+// -----
+// This place is for you to output all the typographic
+// elemnts only. Declare all your variables under
+// variables/typography!
+//
+// ==========
+
+body {
+  // Optmizes font rendering for legibility.
+  // May break with some browsers, comment out as necessary.
+  text-rendering: optimizeLegibility;
+}
+
+// Typography styling
+h1 {
+  @include type-scale(h1);
+}
+
+h2 {
+  @include type-scale(h2);
+}
+
+h3 {
+  @include type-scale(h3);
+}
+
+h4 {
+  @include type-scale(h4);
+}
+
+h5 {
+  @include type-scale(h5);
+}
+
+h6 {
+  @include type-scale(h6);
+}
+
+pre,
+code {
+  @include type-scale(base);
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+pre {
+  white-space: pre;
+}
+
+code {
+  overflow: hidden;
+}

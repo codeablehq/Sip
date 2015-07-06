@@ -1,0 +1,52 @@
+// ==========
+// COLORS
+// -----
+// This file is for you to set up all colors that are used in your
+// project.
+//
+// Color naming is one difficult thing that you may have faced with
+// No matter how the naming is done, is somehow doesn't seem to work
+// properly.
+//
+// APPROACH:
+// -----
+// I have adopted @LandonSchropp's approach of naming color variables.
+// You can read up on that approach here.
+// http://davidwalsh.name/sass-color-variables-dont-suck
+//
+// Here's a website to help you name your colors:
+// http://chir.ag/projects/name-that-color/
+//
+// USAGE:
+// ------
+// Use the color in any properties or variable assignments with the
+// color function:
+//
+// .test {
+//   background-color: color(shamrock);
+// }
+//
+// Check out helpers/functions.scss for more info of that function
+//
+// OPTIONAL:
+// ------
+// This approach is totally awesome if you use sublime text. Install the
+// sublime gutter color package and you can instantly see the colors you
+// used in the gutter!
+// https://sublime.wbond.net/packages/Gutter%20Color
+//
+//
+// ==========
+
+$colors: (
+  shamrock: #2FD1AF,
+  jungle-green: #28B598,
+  havelock-blue: #4FA4DD,
+  curious-blue: #348FCC,
+  jaffa: #E78B43,
+  tango: #EA5E1D,
+  burnt-sienna: #E86257,
+  persian-red: #CF4339,
+  porcelain: #FBFCFC,
+  iron: #CBD0D3
+  );

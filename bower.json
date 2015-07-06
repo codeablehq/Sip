@@ -1,0 +1,21 @@
+{
+  "name": "underscores-sip",
+  "version": "0.0.1",
+  "description": "Underscores, enhanced with Gulp and Sass for improved workflow",
+  "author": "Tomaž Zaman <tomaz@codeable.io>",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "~2.6.1",
+    "normalize-scss": "~3.0.2",
+    "hmps-animate-scss": "~1.0.1",
+    "vertical-rhythms-without-compass": "~1.0.0",
+    "susy": "~2.2.3"
+  }
+}

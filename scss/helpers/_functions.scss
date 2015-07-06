@@ -1,0 +1,64 @@
+// ==========
+// FUNCTIONS
+// -----
+// This file is for you to include functions that
+// you have created for your project.
+//
+// I have included a few of mine that I constantly use.
+// Feel free to add new functions over here.
+// ==========
+
+// ==========
+// COLOR
+// -----
+// An easy way to get colors from the $colors map that is
+// located in variables/colors.
+//
+// USAGE:
+// -----
+// Usage the color in any properties or variable assignments
+//
+// .test {
+//   background-color: color(color-name);
+// }
+// ==========
+
+@function color($color, $map: $colors) {
+  @return map-get($map, $color);
+}
+
+// ==========
+// GET-CONTEXT
+// -----
+// Gets a certain context from the $contexts map
+// ==========
+@function get-context($keys...) {
+  @return _susy-deep-get($contexts, $keys...);
+}
+
+// ==========
+// MAP-FETCH
+// -----
+// An easy way to fetch a deep value in a multi-level map.
+// Works much like map-get() except that you pass multiple
+// keys as the second parameter to go down multiple levels
+// in the nested map.
+//
+// https://gist.github.com/jlong/8760275
+// ==========
+
+@function map-fetch($map, $keys) {
+  $key: nth($keys, 1);
+  $length: length($keys);
+  $value: map-get($map, $key);
+  @if ($length > 1) {
+    $rest: ();
+    @for $i from 2 through $length {
+      $rest: append($rest, nth($keys, $i))
+    }
+    @return map-fetch($value, $rest)
+  } @else {
+    @return $value;
+  }
+}
+

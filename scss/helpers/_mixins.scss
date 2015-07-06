@@ -1,0 +1,217 @@
+// ==========
+// MIXINS
+// -----
+// This file is for you to include mixins that
+// you have created for your project.
+//
+// I have included a few of mine that I constantly use.
+// Feel free to add new mixins over here,
+// ==========
+
+// ==========
+// ADD-CONTEXT
+// -----
+// Adds current context to the $contexts map that is used
+// to store all contexts for all susy items for its children
+//
+// USAGE:
+// -----
+// If parent context was previously declared,
+// use with either nested or susy-breakpoint:
+//
+// .no-parent {
+//   @include susy-breakpoint(600px, 9) {
+//     @include add-context(content, med, 6)
+//   }
+// }
+//
+// If parent context was declared previously,
+// use with get-context:
+//
+// .has-parent {
+//   @include get-context(content, med) {
+//     @include add-context(gallery, med, 3);
+//   }
+// }
+// ==========
+@mixin add-context($layout, $breakpoint, $span, $location: null) {
+  @if type-of($location) == "string" {
+    $contexts: _susy-deep-set($contexts, $layout, $breakpoint, $span of susy-get(columns) susy-get(gutter) $location) !global;
+  }
+  @else {
+    $contexts: _susy-deep-set($contexts, $layout, $breakpoint, $span of susy-get(columns) susy-get(gutter) at $location) !global;
+  }
+}
+// ==========
+// GET-CONTEXT
+// -----
+// Gets the context from the $contexts map and include a
+// nested wrapper to use with the contents of the context.
+//
+// Usage:
+// ------
+//
+// .test {
+//   @include breakpoint(large) {
+//      @include get-context(content,large) {
+//        @include span(6);
+//      }
+//   }
+// }
+//
+// ==========
+@mixin get-context($keys...) {
+  $context: get-context($keys...);
+  @include nested($context) {
+    @content;
+  }
+}
+
+// ==========
+// CLEARFIX FOR IE8 & ABOVE
+// -----
+// http://css-tricks.com/snippets/css/clear-fix/
+// ==========
+
+@mixin cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// ==========
+// IMAGE-REPLACEMENT
+// -----
+// Replaces text with background images.
+// Requires inline-block or block display
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+// ==========
+
+@mixin image-replacement {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+// ==========
+// IS-INVISIBLE
+// -----
+// Makes element invisible!
+// Remains visible for accessibility
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// ==========
+
+@mixin is-invisible {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}
+
+// ==========
+// IS-VISIBLE
+// -----
+// Turns off the element-invisible effect.
+// ==========
+
+@mixin is-visible {
+  position: static;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+// ==========
+// PLACEHOLDER
+// -----
+// Changes Placeholder color
+// ==========
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $color;
+  }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+// ==========
+// SELECTION
+// -----
+// Changes background color and text color when text is selected
+// ==========
+@mixin selection($bgColor, $textColor) {
+  &::-moz-selection {
+    background: $bgColor;
+    color: $textColor;
+  }
+  &::selection {
+    background: $bgColor;
+    color: $textColor;
+  }
+}
+
+// ==========
+// SHAPE MIXINS
+// -----
+// Shapes availble within this mixin files are:
+//
+// Circle
+// Triangle
+// ==========
+
+@mixin circle($width) {
+  width: $width;
+  height: $width;
+  border-radius: 100%;
+}
+
+@mixin triangle($dir, $size, $color) {
+  border: $size transparent solid;
+  @if $dir == "top" or $dir == "up" {
+    border-bottom-color: $color;
+  }
+  @else if $dir == "right" or $dir == "after" {
+    border-left-color: $color;
+  }
+  @else if $dir == "bottom" or $dir == "down" {
+    border-top-color: $color;
+  }
+  @else if $dir == "left" or $dir == "before" {
+    border-right-color: $color;
+  }
+}
+
+// ==========
+// TYPE-SCALE
+// -----
+// Gets font-size and baseline from typography map located
+// in variables/typography and creates the necessary
+// font-size and line-height property in CSS with the
+// compass vertical rhythm.
+//
+// This uses the @include adjust-font-size-to mixin and
+// requires Compass Vertical Rhythm to be used.
+//
+// https://medium.com/p/8e51498c3713
+// ==========
+@mixin type-scale($scale, $map: $type-scale) {
+  $font-size: map-fetch($map, $scale font-size);
+  $base-lines: map-fetch($map, $scale base-lines);
+  @include adjust-font-size-to($font-size, $base-lines);
+}

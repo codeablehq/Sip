@@ -5,6 +5,8 @@
  * support for dropdown menus.
  */
 ( function() {
+	"use strict";
+
 	var container, button, menu, links, subMenus;
 
 	container = document.getElementById( 'site-navigation' );

@@ -1,0 +1,47 @@
+// ==========
+// LAYOUTS
+// -----
+// This document is supposed to hold all your layouts for your website.
+// It also contains a $contexts map to hold all different contexts that
+// you might require.
+//
+// As you write your spans, merge the current context into the $contexts
+// map so you can easily get the context out whenever you need it to.
+//
+// I've also provided an example of how to do this.
+// ==========
+
+// Creates a context map
+$contexts: () !default;
+
+.wrap {
+  @include container(1140px 12);
+}
+
+// Let's say you have these elements:
+// - content - takes up 8 of 12 columns
+// - sidebar - takes up 4 of 12 columns
+// - gallery-item - takes up 4 of 8 columns, parent is content
+// Check out Chapter 15 for a refresher of the demo
+
+.content {
+  // 8 columns of 12 columns
+  @extend %cf;
+  @include span(8);
+  @include add-context(content, large, 8);
+}
+
+.sidebar {
+  // 4 colums of 12 columns
+  @include span(4 of 12 last);
+  @include add-context(sidebar, large, 4, last);
+}
+
+// Parent = content
+// File =
+.gallery-item {
+  // 4 columns of 8 columns
+  @include get-context(content, large) {
+    @include gallery(4)
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "underscores-sip",
+  "version": "0.0.1",
+  "description": "Underscores, enhanced with Gulp and Sass for improved workflow",
+  "author": "Tomaž Zaman <tomaz@codeable.io>",
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-minify-css": "~1.2.0",
+    "gulp-watch": "~4.2.4",
+    "gulp-uglify": "~1.2.0",
+    "gulp-sass": "~2.0.3",
+    "gulp-plumber": "~1.0.1",
+    "browser-sync": "~2.7.13",
+    "jshint-stylish": "~2.0.1",
+    "gulp-jshint": "~1.11.2"
+  },
+  "dependencies": {}
+}

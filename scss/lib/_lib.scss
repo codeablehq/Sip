@@ -1,0 +1,36 @@
+// ==========
+// LIBRARIES
+// ------
+// This file is for you to import other libraries that
+// you would like to include into your project.
+//
+// I have personally chosen to include all my project
+// dependencies with Bower. A dependency manager.
+//
+// Simply open the terminal and type bower install <package-name>
+// and it will be automatically installed in bower_components.
+// The pre-requisite is that you have node.js and bower installed
+// in your system.
+//
+// Node.js - http://nodejs.org
+// Bower - http://bower.io
+//
+// If you are not comfortable with Bower, feel free to add new
+// libraries into the libraries folder in any way you like.
+// Then, import those libraries in the file here.
+// ==========
+
+// susy
+@import "../../bower_components/susy/sass/_susy.scss";
+
+// normalize-scss
+@import "../../bower_components/normalize-scss/_normalize.scss";
+
+// breakpoints-sass
+@import "../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
+
+// Vertical rhythms (without compass)
+@import "../../bower_components/vertical-rhythms-without-compass/_vertical-rhythms.scss";
+
+// hmps-animate-scss
+@import "../../bower_components/hmps-animate-scss/animate.scss";
